@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>leantime</Name>
+  <Repository>spaceinvaderone/leantime</Repository>
+  <Registry>https://hub.docker.com/r/leantime/leantime/</Registry>
+  <Network>proxynet</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://leantime.io/</Project>
+  <Overview>Leantime is an open source project management system for small teams and startups.</Overview>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8001]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/A75G/docker-templates/master/templates/leantime.xml</TemplateURL>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1591570807</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Leantime is an open source project management system for small teams and startups.</Description>
+  <Networking>
+    <Mode>proxynet</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8001</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/leantime/config/</HostDir>
+      <ContainerDir>/var/www/html/config/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/leantime/logs</HostDir>
+      <ContainerDir>/var/www/html/resources/logs</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/leantime/userfiles</HostDir>
+      <ContainerDir>/var/www/html/userfiles</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/leantime/publicuserfiles</HostDir>
+      <ContainerDir>/var/www/html/public/userfiles</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>LEAN_DB_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_DB_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_DB_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_DB_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>true</Value>
+      <Name>LEAN_EMAIL_USE_SMTP</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_EMAIL_RETURN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_EMAIL_SMTP_HOSTS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_EMAIL_SMTP_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>true</Value>
+      <Name>LEAN_EMAIL_SMTP_AUTO_TLS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>ssl</Value>
+      <Name>LEAN_EMAIL_SMTP_SECURE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>465</Value>
+      <Name>LEAN_EMAIL_SMTP_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_EMAIL_SMTP_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>LEAN_APP_URL</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Port" Target="80" Default="8001" Mode="tcp" Description="Port" Type="Port" Display="always" Required="true" Mask="false">8001</Config>
+  <Config Name="LEAN_DB_HOST" Target="LEAN_DB_HOST" Default="Hostname or IP" Mode="" Description="Database Hostname or IP (Add :port if you are not using 3306 default mysql mariadb port)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="LEAN_DB_USER" Target="LEAN_DB_USER" Default="root" Mode="" Description="LEAN_DB_USER" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="LEAN_DB_PASSWORD" Target="LEAN_DB_PASSWORD" Default="password" Mode="" Description="LEAN_DB_PASSWORD" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="LEAN_DB_DATABASE" Target="LEAN_DB_DATABASE" Default="leantime" Mode="" Description="LEAN_DB_DATABASE" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Use SMPT email" Target="LEAN_EMAIL_USE_SMTP" Default="true|false" Mode="" Description="use smtp email true/false" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Email address" Target="LEAN_EMAIL_RETURN" Default="" Mode="" Description="Email address" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Email server host" Target="LEAN_EMAIL_SMTP_HOSTS" Default="" Mode="" Description="Email server host" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Email username" Target="LEAN_EMAIL_SMTP_USERNAME" Default="" Mode="" Description="Email username" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Auto TLS" Target="LEAN_EMAIL_SMTP_AUTO_TLS" Default="true|false" Mode="" Description="Auto TLS  true|false" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Email Security protocol" Target="LEAN_EMAIL_SMTP_SECURE" Default="ssl|tls|starttls" Mode="" Description="Email Security protocol  TLS|SSL|STARTTLS" Type="Variable" Display="always" Required="false" Mask="false">ssl</Config>
+  <Config Name="SMPT port " Target="LEAN_EMAIL_SMTP_PORT" Default="" Mode="" Description="smtp port (usually one of 25, 465, 587, 2526)" Type="Variable" Display="always" Required="false" Mask="false">465</Config>
+  <Config Name="Email password" Target="LEAN_EMAIL_SMTP_PASSWORD" Default="" Mode="" Description="Email password" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="config" Target="/var/www/html/config/" Default="" Mode="rw" Description="Container Path: /var/www/html/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/leantime/config/</Config>
+  <Config Name="logs" Target="/var/www/html/resources/logs" Default="" Mode="rw" Description="Container Path: /var/www/html/resources/logs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/leantime/logs</Config>
+  <Config Name="userfiles" Target="/var/www/html/userfiles" Default="" Mode="rw" Description="Container Path: /var/www/html/userfiles" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/leantime/userfiles</Config>
+  <Config Name="public_userfiles" Target="/var/www/html/public/userfiles" Default="" Mode="rw" Description="Container Path: /var/www/html/public/userfiles" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/leantime/publicuserfiles</Config>
+  <Config Name="app url" Target="LEAN_APP_URL" Default="" Mode="" Description="only fill in if using reverse proxy" Type="Variable" Display="always" Required="false" Mask="false"/>
+</Container>
