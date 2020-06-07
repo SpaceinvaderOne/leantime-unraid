@@ -4,10 +4,11 @@ ARG LEAN_VERSION=2.1.4
 
 WORKDIR /var/www/html
 
-VOLUME ["/var/www/html/config", \
-        "/var/www/html/resources/logs", \
-        "/var/www/html/userfiles", \
-        "/var/www/html/public/userfiles"]
+# volumes
+VOLUME /var/www/html/config
+VOLUME /var/www/html/resources/logs
+VOLUME /var/www/html/userfiles
+VOLUME /var/www/html/public/userfiles
 
 # Install dependencies
 RUN apk update && apk add --no-cache \
