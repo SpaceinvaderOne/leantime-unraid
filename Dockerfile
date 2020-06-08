@@ -46,5 +46,5 @@ RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf && \
 ENTRYPOINT ["/start.sh"]
 EXPOSE 80
 # volumes
-COPY  /configdata/*.* /var/www/html/config
+COPY  /configdata/*.* /var/www/html/config/
 VOLUME /var/www/html/config
