@@ -4,12 +4,6 @@ ARG LEAN_VERSION=2.1.4
 
 WORKDIR /var/www/html
 
-# volumes
-VOLUME /var/www/html/config
-VOLUME /var/www/html/resources/logs
-VOLUME /var/www/html/userfiles
-VOLUME /var/www/html/public/userfiles
-
 # Install dependencies
 RUN apk update && apk add --no-cache \
     mysql-client \
@@ -48,3 +42,8 @@ RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf && \
 # Expose port 9000 and start php-fpm server
 ENTRYPOINT ["/start.sh"]
 EXPOSE 80
+# volumes
+VOLUME /var/www/html/config
+VOLUME /var/www/html/resources/logs
+VOLUME /var/www/html/userfiles
+VOLUME /var/www/html/public/userfiles
